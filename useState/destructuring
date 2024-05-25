@@ -1,0 +1,40 @@
+const animals=[
+    {name:"cat" ,sound:"meow"},
+    {name:"dog" ,sound:"woof"}
+]
+
+const [cat,dog]=animals;
+
+console.log(cat)
+// { name: 'cat', sound: 'meow' }
+
+const [name,sound]=cat
+console.log(name)
+// TypeError: cat is not iterable. Because cat is an object and you need to use an object literal
+
+const {name,sound}=cat
+console.log(name) 
+console.log(sound)
+// cat
+// meow
+
+//Note: while destructuring arrays, you can use any names. But while destructuring objects, you need to use same names
+
+const {name:catName,sound:catSound}=cat
+console.log(catSound)
+//changing the key name. you no longer have access to the original name
+
+const {name="fluffy",sound:catSound}=cat
+//providing deafult name
+
+//Nested objects
+const animals=[
+    { sound:"meow",feedingRequirements:{
+        food:2,
+        water:3
+    }},
+    {name:"dog" ,sound:"woof"}
+]
+const [cat,dog]=animals;
+const {name="fluffy",sound,feedingRequirements:{food,water}}=cat
+console.log(food)
